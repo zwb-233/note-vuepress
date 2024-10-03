@@ -1,0 +1,3 @@
+[submodule "src/note"]
+	path = src/note
+	url = git@github.com:zwb-233/note.git
