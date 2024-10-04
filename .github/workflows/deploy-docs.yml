@@ -5,9 +5,11 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   deploy-gh-pages:
@@ -19,7 +21,7 @@ jobs:
           fetch-depth: 0
           # 如果你文档需要 Git 子模块，取消注释下一行
           submodules: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BLOG_TOKEN }}
 
       - name: 设置 pnpm
         uses: pnpm/action-setup@v4
