@@ -6,10 +6,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-from-note-repo]
 
 permissions:
   contents: write
-  pull-requests: read
 
 jobs:
   deploy-gh-pages:
@@ -40,6 +41,10 @@ jobs:
           corepack enable
           pnpm install --frozen-lockfile
 
+      - name: 更新所有子模块到最新提交
+        run: |
+          git submodule update --remote --merge
+
       - name: 构建文档
         env:
           NODE_OPTIONS: --max_old_space_size=8192
@@ -53,3 +58,20 @@ jobs:
           # 部署文档
           branch: gh-pages
           folder: src/.vuepress/dist
+
+      - name: 检查子模块是否有更新
+        id: "check_submodule_change"
+        run: |
+          if [[ `git status --porcelain` ]]; then
+            git add .
+            git commit -m "更新子模块到最新提交"
+            echo "::set-output name=changes::true"
+          else
+            echo "子模块已是最新版本"
+            echo "::set-output name=changes::false"
+          fi
+
+      - name: 推送更新到主分支
+        if: steps.check_submodule_change.outputs.changes == 'true'
+        run: |
+          git push origin main
