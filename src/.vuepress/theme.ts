@@ -4,18 +4,20 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://zwb233.github.io/note-vuepress",
 
   author: {
-    name: "Mr.Hope",
-    url: "https://mister-hope.com",
+    name: "12a",
+    url: "/note-vuepress/intro.html",
   },
 
   iconAssets: "fontawesome-with-brands",
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/logo.png",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  favicon: "/logo.png",
+
+  repo: "zwb-233/note-vuepress",
 
   docsDir: "src",
 
@@ -73,11 +75,11 @@ export default hopeTheme({
   },
 
   // 加密配置
-  encrypt: {
-    config: {
-      "/demo/encrypt.html": ["1234"],
-    },
-  },
+  // encrypt: {
+  //   config: {
+  //     "/demo/encrypt.html": ["1234"],
+  //   },
+  // },
 
   // 多语言配置
   metaLocales: {
@@ -125,27 +127,27 @@ export default hopeTheme({
       attrs: true,
       component: true,
       demo: true,
-      include: true,
+      // include: true,
       mark: true,
-      plantuml: true,
+      // plantuml: true,
       spoiler: true,
-      stylize: [
-        {
-          matcher: "Recommended",
-          replacer: ({ tag }) => {
-            if (tag === "em")
-              return {
-                tag: "Badge",
-                attrs: { type: "tip" },
-                content: "Recommended",
-              };
-          },
-        },
-      ],
+      // stylize: [
+      //   {
+      //     matcher: "Recommended",
+      //     replacer: ({ tag }) => {
+      //       if (tag === "em")
+      //         return {
+      //           tag: "Badge",
+      //           attrs: { type: "tip" },
+      //           content: "Recommended",
+      //         };
+      //     },
+      //   },
+      // ],
       sub: true,
       sup: true,
       tasklist: true,
-      vPre: true,
+      // vPre: true,
 
       // 在启用之前安装 chart.js
       // chart: true,
@@ -153,7 +155,7 @@ export default hopeTheme({
       // insert component easily
 
       // 在启用之前安装 echarts
-      // echarts: true,
+      echarts: true,
 
       // 在启用之前安装 flowchart.ts
       // flowchart: true,
@@ -162,7 +164,7 @@ export default hopeTheme({
       // gfm: true,
 
       // 在启用之前安装 mermaid
-      // mermaid: true,
+      mermaid: true,
 
       // playground: {
       //   presets: ["ts", "vue"],

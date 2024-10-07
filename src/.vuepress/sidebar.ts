@@ -10,6 +10,5 @@ export default sidebar({
       prefix: "note/",
       children: "structure",
     },
-    "intro",
   ],
 });

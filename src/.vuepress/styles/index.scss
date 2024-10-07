@@ -1,11 +1,18 @@
 // place your custom styles here
 
 // 数学公式的样式，数学公式在span.katex span.katex-html span.base里
-.katex-html {
+.katex-html, .MathJax {
   color: #2ecc71;
 }
 
 // ``的样式，单行code在code标签里
 code {
   color: #c12c1f;
+}
+
+// 主页中代码块的行号导致排版错误，删除主页中的代码块行号
+.vp-article-wrapper {
+  .line-numbers {
+    display: none;
+  }
 }

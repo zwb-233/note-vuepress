@@ -1,6 +1,7 @@
 import {defineUserConfig} from "vuepress";
 
 import theme from "./theme.js";
+import { slugify } from "./util/slugify.js"
 
 export default defineUserConfig({
     base: "/note-vuepress/",
@@ -12,6 +13,10 @@ export default defineUserConfig({
     theme,
 
     port: 8088,
+
+    markdown: {
+        slugify
+    },
 
     // 和 PWA 一起启用
     // shouldPrefetch: false,
