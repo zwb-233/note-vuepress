@@ -100,6 +100,8 @@ export default hopeTheme({
     //   serverURL: "https://waline-comment.vuejs.press",
     // },
 
+    git: process.env.NODE_ENV !== 'development',
+
     components: {
       components: ["Badge", "VPCard"],
     },

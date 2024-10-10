@@ -45,20 +45,6 @@ jobs:
         run: |
           git submodule update --remote --merge
 
-      - name: 构建文档
-        env:
-          NODE_OPTIONS: --max_old_space_size=8192
-        run: |-
-          pnpm run docs:build
-          > src/.vuepress/dist/.nojekyll
-
-      - name: 部署文档
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          # 部署文档
-          branch: gh-pages
-          folder: src/.vuepress/dist
-
 #      - name: 检查子模块是否有更新
 #        id: "check_submodule_change"
 #        run: |
@@ -75,3 +61,25 @@ jobs:
 #        if: steps.check_submodule_change.outputs.changes == 'true'
 #        run: |
 #          git push origin main
+
+#     # [错误效果，插件还会参考本地文件时间变化] 使用subtree让 获取历史插件@vuepress/git 获取到note更改信息(插件只能获取本仓库的信息)
+#      - name: 获取note
+#        run: |-
+#          git rm src/note -f
+#          git add .
+#          git commit -m 'will never commit' # 修复添加subtree错误 fatal: working tree has modifications.  Cannot add.
+#          git subtree add --prefix=src/note git@github.com:zwb-233/note.git master
+
+      - name: 构建文档
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        run: |-
+          pnpm run docs:build
+          > src/.vuepress/dist/.nojekyll
+
+      - name: 部署文档
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          # 部署文档
+          branch: gh-pages
+          folder: src/.vuepress/dist
