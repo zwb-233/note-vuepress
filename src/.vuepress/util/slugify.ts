@@ -1,7 +1,10 @@
-// 用于对标题id和链接转换的函数
-// 默认版本对数字开头做了额外处理，导致无法和默认Markdown数字开头标题链接对应
-// string.js slugify drops non ascii chars so we have to
-// use a custom implementation here
+/**
+ * 用于对标题id和链接转换的函数
+ * 默认版本对数字开头做了额外处理，导致无法和默认Markdown数字开头标题链接对应
+ * string.js slugify drops non ascii chars so we have to
+ * use a custom implementation here
+ */
+
 // @ts-ignore
 import { remove as removeDiacritics } from 'diacritics'
 
@@ -17,9 +20,9 @@ export function slugify (str: string): string {
         .replace(/(\d+)\./g, "$1")
         // Replace special characters
         .replace(rSpecial, '-')
-        // Remove continous separators
+        // Remove continuous separators
         .replace(/-{2,}/g, '-')
-        // Remove prefixing and trailing separtors
+        // Remove prefixing and trailing separators
         .replace(/^-+|-+$/g, '')
         // ensure it doesn't start with a number (#121)
         // .replace(/^(\d)/, '_$1')
