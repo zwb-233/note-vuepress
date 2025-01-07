@@ -15,7 +15,7 @@ export default defineUserConfig({
     port: 8088,
 
     markdown: {
-        slugify
+        slugify,
     },
 
     // 和 PWA 一起启用
