@@ -24,9 +24,9 @@ export default defineUserConfig({
     head: [
         ["link", {rel: "preconnect", href: "https://fonts.googleapis.com"}],
         ["link", {rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: ""}],
-        // JetBrain mono 字体
+        // JetBrain mono 字体 和 Noto Sans字体
         ["link", {
-            href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap",
+            href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans+SC:wght@100..900&display=swap",
             rel: "stylesheet"
         }],
     ]
