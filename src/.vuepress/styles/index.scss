@@ -52,3 +52,10 @@ div[class*=language-].has-collapsed-lines:not(.collapsed) .collapsed-lines {
   width: var(--code-line-number-width);
   text-align: center;
 }
+
+// 修改在vp-content中的p标签样式
+[vp-content]:not(.custom) > p, [vp-content]:not(.custom) > ul p, [vp-content]:not(.custom) > ol p {
+  // 使用的是用户代理的样式，默认都为1em;
+  margin-top: 0.8em;
+  margin-bottom: 0.3em;
+}
