@@ -18,13 +18,6 @@ code {
   }
 }
 
-// 主页中代码块的行号导致排版错误，删除主页中的代码块行号
-.vp-article-wrapper {
-  .line-numbers {
-    display: none;
-  }
-}
-
 //// 隐藏未浏览的章节二级目录
 //// 如果当前浏览的是一级标题，展开二级目录
 //.vp-toc-item.active + li:not([class]) {
