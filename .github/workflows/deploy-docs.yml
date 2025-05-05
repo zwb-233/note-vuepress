@@ -33,8 +33,14 @@ jobs:
       - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
+
+      - name: 获取 pnpm store 真实路径并预创建
+        run: |
+          STORE=$(pnpm store path --silent)
+          echo "pnpm store path = $STORE"
+          mkdir -p "$STORE"
 
       - name: 安装依赖
         run: |
