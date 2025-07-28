@@ -1,0 +1,58 @@
+{
+  "scopeName": "source.gitignore",
+  "name": "gitignore",
+  "displayName": "Gitignore",
+  "fileTypes": ["gitignore"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#negation" },
+    { "include": "#directory-pattern" },
+    { "include": "#wildcard-pattern" },
+    { "include": "#literal-pattern" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.gitignore",
+          "match": "^\\s*#.*$"
+        }
+      ]
+    },
+    "negation": {
+      "patterns": [
+        {
+          "name": "keyword.operator.negation.gitignore",
+          "match": "^\\s*!(.+)$",
+          "captures": {
+            "1": { "name": "string.unquoted.path.gitignore" }
+          }
+        }
+      ]
+    },
+    "directory-pattern": {
+      "patterns": [
+        {
+          "name": "string.unquoted.path.directory.gitignore",
+          "match": "^\\s*(?:/)?([^\\s#]*?/)$"
+        }
+      ]
+    },
+    "wildcard-pattern": {
+      "patterns": [
+        {
+          "name": "string.unquoted.path.gitignore",
+          "match": "^\\s*(?:/)?([^\\s#]*[?*][^\\s#]*)$"
+        }
+      ]
+    },
+    "literal-pattern": {
+      "patterns": [
+        {
+          "name": "string.unquoted.path.gitignore",
+          "match": "^\\s*(?:/)?([^\\s#]+)$"
+        }
+      ]
+    }
+  }
+}

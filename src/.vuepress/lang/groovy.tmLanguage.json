@@ -4,13 +4,11 @@
     "If you want to provide a fix or improvement, please create a pull request against the original repository.",
     "Once accepted there, we are happy to receive an update request."
   ],
-  "version": "https://github.com/textmate/groovy.tmbundle/blob/6f903cacfb2d5397a350eeb73bc36b2c40f3da70/Syntaxes/Groovy.tmLanguage",
+  "version": "https://github.com/textmate/groovy.tmbundle/commit/85d8f7c97ae473ccb9473f6c8d27e4ec957f4be1",
+  "name": "groovy",
   "scopeName": "source.groovy",
-  "fileTypes": ["groovy", "gvy", "gradle"],
-  "foldingStartMarker": "(\\{\\s*$|^\\s*// \\{\\{\\{)",
-  "foldingStopMarker": "^\\s*(\\}|// \\}\\}\\}$)",
-  "keyEquivalent": "^~G",
-  "name": "Gradle",
+  "fileTypes": ["gradle"],
+  "displayName": "Groovy",
   "patterns": [
     {
       "captures": {
@@ -530,7 +528,7 @@
       ]
     },
     "groovy-code-minus-map-keys": {
-      "comment": "In some situations, maps can't be declared without enclosing []'s,\n\t\t\t\ttherefore we create a collection of everything but that",
+      "comment": "In some situations, maps can't be declared without enclosing []'s, \n\t\t\t\ttherefore we create a collection of everything but that",
       "patterns": [
         {
           "include": "#comments"
@@ -895,7 +893,7 @@
     },
     "methods": {
       "applyEndPatternLast": 1,
-      "begin": "(?x:(?<=;|^|{)(?=\\s*\n                (?:\n                    (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier\n                        |\n                    (?:def)\n                        |\n                    (?:\n                        (?:\n                            (?:void|boolean|byte|char|short|int|float|long|double)\n                                |\n                            (?:@?(?:[a-zA-Z]\\w*\\.)*[A-Z]+\\w*) # object type\n                        )\n                        [\\[\\]]*\n                        (?:<.*>)?\n                    )\n\n                )\n                \\s+\n                ([^=]+\\s+)?\\w+\\s*\\(\n\t\t\t))",
+      "begin": "(?x:(?<=;|^|{)(?=\\s*\n                (?:\n                    (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier\n                        |\n                    (?:def)\n                        |\n                    (?:\n                        (?:\n                            (?:void|boolean|byte|char|short|int|float|long|double)\n                                |\n                            (?:@?(?:[a-zA-Z]\\w*\\.)*[A-Z]+\\w*) # object type\n                        )\n                        [\\[\\]]*\n                        (?:<.*>)?\n                    ) \n                    \n                )\n                \\s+\n                ([^=]+\\s+)?\\w+\\s*\\(\n\t\t\t))",
       "end": "}|(?=[^{])",
       "name": "meta.definition.method.groovy",
       "patterns": [
@@ -1331,7 +1329,7 @@
       "applyEndPatternLast": 1,
       "patterns": [
         {
-          "begin": "(?x:(?=\n                        (?:\n                            (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier\n                                |\n                            (?:def)\n                                |\n                            (?:void|boolean|byte|char|short|int|float|long|double)\n                                |\n                            (?:(?:[a-z]\\w*\\.)*[A-Z]+\\w*) # object type\n                        )\n                        \\s+\n                        [\\w\\d_<>\\[\\],\\s]+\n                        (?:=|$)\n\n        \t\t\t))",
+          "begin": "(?x:(?=\n                        (?:\n                            (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier\n                                |\n                            (?:def)\n                                |\n                            (?:void|boolean|byte|char|short|int|float|long|double)\n                                |\n                            (?:(?:[a-z]\\w*\\.)*[A-Z]+\\w*) # object type\n                        )\n                        \\s+\n                        [\\w\\d_<>\\[\\],\\s]+\n                        (?:=|$)\n                        \n        \t\t\t))",
           "end": ";|$",
           "name": "meta.definition.variable.groovy",
           "patterns": [
@@ -1381,9 +1379,7 @@
             }
           ]
         }
-      ],
-      "end": "",
-      "begin": ""
+      ]
     }
   }
 }

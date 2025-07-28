@@ -1,0 +1,166 @@
+{
+  "name": "redis",
+  "scopeName": "source.redis",
+  "displayName": "Redis",
+  "fileTypes": ["redis"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#commands" },
+    { "include": "#keyNames" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#resp" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.redis",
+          "match": "#.*$",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.redis"
+            }
+          }
+        }
+      ]
+    },
+    "commands": {
+      "patterns": [
+        {
+          "name": "keyword.control.redis.read",
+          "match": "^\\s*(?i:(GET|MGET|EXISTS|TTL|PTTL|LRANGE|HGET|HGETALL|SCARD|SMEMBERS|ZRANGE|ZREVRANGE|ZRANK|ZRANGEBYSCORE|ZCOUNT|GETRANGE|HEXISTS))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.read" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.write",
+          "match": "^\\s*(?i:(SET|MSET|DEL|INCR|DECR|LPUSH|RPUSH|LSET|LTRIM|LREM|HSET|HDEL|SADD|SREM|ZADD|ZREM|ZINCRBY|SETRANGE|SETEX|PSETEX|APPEND))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.write" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.hash",
+          "match": "^\\s*(?i:(HSET|HGET|HDEL|HMGET|HMSET|HINCRBY|HINCRBYFLOAT|HKEYS|HVALS|HGETALL|HEXISTS))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.hash" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.list",
+          "match": "^\\s*(?i:(LPUSH|RPUSH|LPOP|RPOP|LRANGE|LSET|LLEN|LREM|LTRIM|RPOPLPUSH|LPUSHX|RPUSHX|BLPOP|BRPOP|BRPOPLPUSH))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.list" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.set",
+          "match": "^\\s*(?i:(SADD|SREM|SMEMBERS|SCARD|SISMEMBER|SUNION|SINTER|SDIFF|SMOVE|SRANDMEMBER|SPOP))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.set" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.sortedset",
+          "match": "^\\s*(?i:(ZADD|ZREM|ZRANK|ZREVRANK|ZRANGE|ZREVRANGE|ZCARD|ZSCORE|ZCOUNT|ZINCRBY|ZUNIONSTORE|ZINTERSTORE))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.sortedset" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.pubsub",
+          "match": "^\\s*(?i:(PUBLISH|SUBSCRIBE|UNSUBSCRIBE|PSUBSCRIBE|PUNSUBSCRIBE|PUBSUB))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.pubsub" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.key",
+          "match": "^\\s*(?i:(KEYS|EXPIRE|PEXPIRE|EXPIREAT|PEXPIREAT|TTL|PTTL|TYPE|RENAME|RENAMENX|DEL|UNLINK|PERSIST|EXISTS|SCAN))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.key" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.transaction",
+          "match": "^\\s*(?i:(MULTI|EXEC|WATCH|UNWATCH|DISCARD))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.transaction" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.connection",
+          "match": "^\\s*(?i:(AUTH|ECHO|PING|SELECT|QUIT|HELLO|CLIENT))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.connection" }
+          }
+        },
+        {
+          "name": "keyword.control.redis.server",
+          "match": "^\\s*(?i:(INFO|CONFIG|SAVE|BGSAVE|BGREWRITEAOF|SLOWLOG|TIME|MONITOR|ROLE|FLUSHDB|FLUSHALL|SYNC|REPLCONF|PSYNC|COMMAND))\\b",
+          "captures": {
+            "1": { "name": "keyword.control.redis.server" }
+          }
+        },
+        {
+          "name": "comment.line.number-sign.redis",
+          "match": "^\\s*#.*$",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.redis"
+            }
+          }
+        }
+      ]
+    },
+    "keyNames": {
+      "patterns": [
+        {
+          "name": "variable.other.key.redis",
+          "match": "\\b[a-zA-Z0-9_:-]+(?=\\s|$)"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.redis",
+          "begin": "\"",
+          "end": "\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.redis"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.redis"
+            }
+          }
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.redis",
+          "match": "\\b-?\\d+(\\.\\d+)?\\b"
+        }
+      ]
+    },
+    "resp": {
+      "patterns": [
+        {
+          "name": "storage.type.resp.marker.redis",
+          "match": "^[\\*\\$\\+\\-\\:]"
+        },
+        {
+          "name": "string.unquoted.resp.redis",
+          "match": "(?<=\\$\\d+\\r\\n)[^\\r\\n]+"
+        }
+      ]
+    }
+  }
+}

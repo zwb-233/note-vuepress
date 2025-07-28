@@ -3,6 +3,8 @@ import {hopeTheme} from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 import groovy from "./lang/groovy.tmLanguage.json"
+import redis from  "./lang/redis.tmLanguage.json"
+import gitignore from "./lang/gitignore.tmLanguage.json"
 
 export default hopeTheme({
     hostname: "https://zwb233.github.io/note-vuepress",
@@ -17,6 +19,7 @@ export default hopeTheme({
     favicon: "/logo.png",
 
     repo: "zwb-233/note-vuepress",
+    // docsRepo: "https://github.com/zwb-233/note",
 
     docsDir: "src",
 
@@ -27,8 +30,8 @@ export default hopeTheme({
     sidebar,
 
     // 页脚
-    footer: "默认页脚",
-    displayFooter: true,
+    // footer: "默认页脚",
+    // displayFooter: true,
 
     // 博客相关
     blog: {
@@ -49,6 +52,9 @@ export default hopeTheme({
     metaLocales: {
         editLink: "在 GitHub 上编辑此页",
     },
+
+    contributors: false,
+    editLink: false,
 
     // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
     // hotReload: true,
@@ -120,9 +126,7 @@ export default hopeTheme({
             notationFocus: true,
             notationHighlight: true,
             // whitespace: true,
-            langs: ["shell", "cmake", "java", "javascript", "css", "scss", "sass", "vue", "sql", "c++", "c", "py",
-              "dart", "go", "properties", "bat", "makefile", "docker", "html", "xml", "nginx", "yaml", "apache",
-              "dotenv", "json", "kotlin", "markdown", "http", "mermaid", "ssh-config", "ts", "jsonc", groovy],
+            langs: [groovy, redis, gitignore],
         },
 
         // 在启用之前安装 @vue/repl
@@ -146,7 +150,7 @@ export default hopeTheme({
         //   serverURL: "https://waline-comment.vuejs.press",
         // },
 
-        git: process.env.NODE_ENV !== 'development',
+        git: true,
 
         components: {
             components: ["Badge", "VPCard"],
