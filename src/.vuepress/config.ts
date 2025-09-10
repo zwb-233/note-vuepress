@@ -29,8 +29,8 @@ export default defineUserConfig({
             href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans+SC:wght@100..900&display=swap",
             rel: "stylesheet"
         }],
-        // <meta name="algolia-site-verification"  content="2D8622D998B9C585" />
-        ["meta", {name: "algolia-site-verification", content: "2D8622D998B9C585"}]
+        // <meta name="algolia-site-verification"  content="00944ED46502751C" />
+        ["meta", {name: "algolia-site-verification", content: "00944ED46502751C"}]
     ],
 
     extendsPage(page) {
