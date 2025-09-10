@@ -156,6 +156,15 @@ export default hopeTheme({
             components: ["Badge", "VPCard"],
         },
 
+        docsearch: {
+            // 你的选项
+            // appId, apiKey 和 indexName 是必填的
+            appId: "IF0UXBXT7C",
+            apiKey: "8e12fbcec94ddc8122ac103d550dbfb3",
+            indexName: "vuepress_docs",
+            placeholder: "搜索文档",
+        },
+
         // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
         // pwa: {
         //   favicon: "/favicon.ico",
